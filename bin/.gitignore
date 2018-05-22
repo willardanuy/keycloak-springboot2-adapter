@@ -1,0 +1,10 @@
+.idea/*
+./gradle/*
+/.gradle/
+/build/
+/bin/
+.classpath
+.gradle/buildOutputCleanup/cache.properties
+.gradle/buildOutputCleanup/outputFiles.bin
+.project
+build/test-results/test/binary/output.bin.idx

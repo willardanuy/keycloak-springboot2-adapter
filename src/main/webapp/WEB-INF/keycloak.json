@@ -1,0 +1,10 @@
+{
+  "realm": "keycloak",
+  "auth-server-url": "http://localhost:9090/auth",
+  "ssl-required": "external",
+  "resource": "keycloak-example",
+  "credentials": {
+    "secret": "5f4520d7-8b70-4364-acb0-dd70833ffacd"
+  },
+  "use-resource-role-mappings": true
+}

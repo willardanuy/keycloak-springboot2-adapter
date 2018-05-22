@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dbcadastro
+    username: postgres
+    password: p4SSW0rd
+    driver-class-name: org.postgresql.Driver

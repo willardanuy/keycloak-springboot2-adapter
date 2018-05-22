@@ -1,0 +1,74 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RELEASE'
+	}
+	repositories {
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+		  mavenCentral()
+	    jcenter()
+	    maven {
+	        url 'https://repo.spring.io/libs-release'
+	    }
+	    maven { url "https://repo.spring.io/snapshot" }
+	    maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.keycloak.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+
+
+
+
+repositories {
+	  mavenCentral()
+    jcenter()
+    maven {
+        url 'https://repo.spring.io/libs-release'
+    }
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencyManagement {
+	imports {
+		mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.47'
+		 mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.M8"
+	}
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('io.springfox:springfox-swagger2:2.6.1')
+	compile('io.springfox:springfox-swagger-ui:2.6.1')
+	
+    compile "org.springframework.security:spring-security-config"
+    compile "org.springframework.security:spring-security-oauth2-client"
+    compile "org.springframework.security:spring-security-oauth2-jose"
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
+    compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4'
+    compile 'org.springframework.cloud:spring-cloud-starter-oauth2'
+    compile("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure")
+	compile group: 'org.keycloak', name: 'keycloak-spring-security-adapter', version: '3.4.3.Final'
+    
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+	//live reload
+	compile("org.springframework.boot:spring-boot-devtools")
+	
+}
